@@ -1,0 +1,91 @@
+
+RESTCONF — RESTCONF Protocol
+
+1. Conceito
+
+O RESTCONF é um protocolo de gerenciamento de dispositivos de rede que disponibiliza acesso a dados de configuração e estado por meio de interfaces baseadas em HTTP.
+
+Ele permite que aplicações consultem, criem, modifiquem e removam recursos de dispositivos de rede utilizando operações HTTP.
+
+2. Finalidade
+
+O objetivo do RESTCONF é facilitar a integração entre sistemas de gerenciamento e dispositivos de rede por meio de interfaces compatíveis com arquiteturas REST.
+
+Ele permite que aplicações utilizem APIs para automatizar tarefas de gerenciamento e configuração.
+
+3. Arquitetura
+
+A arquitetura RESTCONF possui dois componentes principais:
+
+- Client: aplicação que envia requisições HTTP.
+- Server: dispositivo de rede que disponibiliza os recursos de gerenciamento.
+
+O servidor disponibiliza recursos organizados de acordo com os modelos de dados definidos em YANG.
+
+4. Transporte e comunicação
+
+O RESTCONF utiliza HTTP ou HTTPS sobre TCP.
+
+Portas padrão:
+- TCP 80: HTTP.
+- TCP 443: HTTPS.
+
+Recomenda-se utilizar HTTPS para proteger a comunicação entre cliente e servidor.
+
+5. Modelo de dados
+
+O RESTCONF utiliza modelos YANG para definir a estrutura dos recursos disponibilizados pela API.
+
+Esses modelos organizam informações de configuração e estado em estruturas hierárquicas.
+
+Os dados podem ser representados em:
+- XML.
+- JSON.
+
+6. Métodos HTTP principais
+
+- GET: consulta recursos e informações.
+- POST: cria recursos ou executa operações, conforme o recurso disponibilizado.
+- PUT: cria ou substitui um recurso.
+- PATCH: modifica parcialmente um recurso.
+- DELETE: remove um recurso.
+
+7. Segurança
+
+O RESTCONF pode utilizar HTTPS para proteger a comunicação por meio de TLS.
+
+Também é importante:
+- Implementar mecanismos de autenticação.
+- Controlar autorização de acesso.
+- Restringir operações administrativas.
+- Validar as requisições recebidas.
+- Registrar operações realizadas.
+- Evitar exposição desnecessária das interfaces de gerenciamento.
+
+8. Casos de uso
+
+O RESTCONF pode ser utilizado para:
+- Consultar configurações de dispositivos.
+- Consultar estados operacionais.
+- Criar ou modificar configurações.
+- Automatizar operações de gerenciamento.
+- Integrar plataformas de gerenciamento com APIs.
+- Desenvolver aplicações de automação de redes.
+
+9. Relação com YANG e NETCONF
+
+O RESTCONF utiliza modelos YANG para organizar os recursos e os dados disponibilizados pela API.
+
+O NETCONF também utiliza frequentemente modelos YANG, mas trabalha com operações RPC e normalmente utiliza SSH sobre TCP.
+
+A principal diferença está na interface de gerenciamento:
+- NETCONF: operações RPC.
+- RESTCONF: operações HTTP sobre recursos.
+
+10. Comparação entre RESTCONF e SNMP
+
+O RESTCONF utiliza interfaces HTTP e modelos YANG para acessar dados estruturados.
+
+O SNMP utiliza objetos identificados por OIDs e organizados em MIBs.
+
+O RESTCONF é adequado para gerenciamento baseado em APIs, enquanto o SNMP é amplamente utilizado em monitoramento de dispositivos e coleta de indicadores operacionais.

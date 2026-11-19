@@ -1,0 +1,67 @@
+
+SNMP — Simple Network Management Protocol
+
+1. Conceito
+
+O SNMP (Simple Network Management Protocol) é um protocolo utilizado para monitorar e gerenciar dispositivos de rede, como roteadores, switches, servidores, impressoras e outros equipamentos compatíveis.
+
+Ele permite que sistemas de gerenciamento consultem informações dos dispositivos, acompanhem indicadores operacionais e, dependendo das permissões e da implementação, modifiquem determinados parâmetros.
+
+2. Arquitetura
+
+A arquitetura SNMP tradicional possui os seguintes componentes:
+
+- Manager: sistema responsável por consultar e gerenciar os dispositivos.
+- Agent: componente executado no dispositivo monitorado que disponibiliza informações de gerenciamento.
+- MIB (Management Information Base): estrutura que organiza os objetos de gerenciamento disponíveis.
+- OID (Object Identifier): identificador único utilizado para localizar objetos dentro da MIB.
+
+3. Comunicação e transporte
+
+O SNMP utiliza principalmente UDP para comunicação.
+
+Portas padrão:
+- UDP 161: utilizada pelo Manager para enviar consultas e operações ao Agent.
+- UDP 162: utilizada pelo Manager para receber notificações, como traps.
+
+4. Operações principais
+
+- GET: consulta o valor de um objeto específico.
+- GETNEXT: consulta o próximo objeto na hierarquia da MIB.
+- GETBULK: permite recuperar grandes conjuntos de informações com menos trocas de mensagens.
+- SET: modifica o valor de um objeto quando permitido.
+- TRAP: envia uma notificação assíncrona do Agent para o Manager.
+- INFORM: envia uma notificação que exige confirmação de recebimento.
+
+5. Versões do SNMP
+
+- SNMPv1: versão inicial, com mecanismos básicos de gerenciamento.
+- SNMPv2c: introduziu melhorias de desempenho e operações adicionais, mas utiliza community strings sem criptografia.
+- SNMPv3: oferece mecanismos de autenticação, integridade e proteção de privacidade por meio de criptografia.
+
+6. Segurança
+
+O SNMPv1 e o SNMPv2c não oferecem proteção criptográfica adequada para ambientes não confiáveis.
+
+O SNMPv3 oferece mecanismos de segurança por meio dos níveis:
+- noAuthNoPriv: sem autenticação e sem privacidade.
+- authNoPriv: com autenticação, mas sem criptografia.
+- authPriv: com autenticação e proteção de privacidade.
+
+A recomendação é utilizar SNMPv3, restringir o acesso aos dispositivos e aplicar controles de rede.
+
+7. Casos de uso
+
+O SNMP pode ser utilizado para:
+- Monitorar utilização de interfaces de rede.
+- Consultar tráfego de entrada e saída.
+- Acompanhar CPU e memória de equipamentos.
+- Identificar indisponibilidade de dispositivos.
+- Receber notificações de eventos.
+- Apoiar ferramentas de monitoramento de infraestrutura.
+
+8. Relação com YANG, NETCONF e RESTCONF
+
+O SNMP utiliza MIBs para estruturar os objetos de gerenciamento. Ele não depende de modelos YANG.
+
+NETCONF e RESTCONF são alternativas de gerenciamento que utilizam modelos de dados, frequentemente definidos com YANG.

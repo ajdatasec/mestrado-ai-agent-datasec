@@ -1,0 +1,22 @@
+services:
+  rag-postgres:
+    image: pgvector/pgvector:pg16
+    container_name: ai-agent-rag-postgres
+    restart: unless-stopped
+
+    env_file:
+      - ../rag/.env
+
+    environment:
+      POSTGRES_USER: raguser
+      POSTGRES_PASSWORD: ${RAG_POSTGRES_PASSWORD}
+      POSTGRES_DB: ragdb
+
+    ports:
+      - "5433:5432"
+
+    volumes:
+      - rag_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  rag_postgres_data:

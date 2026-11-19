@@ -1,0 +1,23 @@
+services:
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:latest
+    container_name: ai-agent-otel-collector
+    restart: unless-stopped
+
+    command:
+      - "--config=/etc/otelcol-contrib/config.yaml"
+
+    volumes:
+      - ./config.yaml:/etc/otelcol-contrib/config.yaml
+
+    ports:
+      - "4317:4317"
+      - "4318:4318"
+
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    container_name: ai-agent-jaeger
+    restart: unless-stopped
+
+    ports:
+      - "16686:16686"

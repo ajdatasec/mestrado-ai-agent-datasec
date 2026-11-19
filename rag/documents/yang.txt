@@ -1,0 +1,89 @@
+
+YANG — Yet Another Next Generation
+
+1. Conceito
+
+YANG (Yet Another Next Generation) é uma linguagem de modelagem de dados utilizada para definir a estrutura, os tipos, as restrições e a organização das informações de configuração e estado de dispositivos de rede.
+
+O YANG não é um protocolo de transporte nem um protocolo de comunicação. Ele define como os dados devem ser estruturados e representados.
+
+2. Finalidade
+
+O principal objetivo do YANG é padronizar a representação de dados utilizados no gerenciamento de redes.
+
+Com modelos YANG, diferentes fabricantes e sistemas podem utilizar estruturas de dados bem definidas para configurar e consultar dispositivos.
+
+3. Estrutura de um modelo YANG
+
+Os principais elementos utilizados em modelos YANG incluem:
+
+- module: define um módulo de modelagem.
+- container: organiza elementos em uma estrutura hierárquica.
+- list: representa uma coleção de elementos.
+- leaf: representa um elemento de dado individual.
+- leaf-list: representa uma lista de valores simples.
+- type: define o tipo de dado de um elemento.
+- grouping: permite reutilizar estruturas de dados.
+- uses: incorpora estruturas definidas em um grouping.
+- rpc: define operações remotas.
+- notification: define estruturas de notificações.
+
+4. Organização dos dados
+
+O YANG organiza os dados em uma árvore hierárquica.
+
+Essa estrutura permite representar configurações complexas, como:
+- Interfaces de rede.
+- Endereços IP.
+- Protocolos de roteamento.
+- Parâmetros de configuração.
+- Estados operacionais.
+- Informações de dispositivos.
+
+5. Formatos de representação
+
+Os modelos YANG definem a estrutura lógica dos dados, mas não determinam um único formato de serialização.
+
+Entre os formatos utilizados estão:
+- XML: utilizado frequentemente em operações NETCONF.
+- JSON: utilizado frequentemente em operações RESTCONF.
+
+6. Relação com NETCONF
+
+O NETCONF utiliza modelos YANG para definir a estrutura dos dados de configuração e estado que podem ser consultados ou modificados.
+
+O YANG descreve os dados, enquanto o NETCONF define como as operações de gerenciamento são realizadas.
+
+7. Relação com RESTCONF
+
+O RESTCONF utiliza modelos YANG para organizar os recursos disponibilizados por meio de interfaces HTTP.
+
+Os dados podem ser representados em XML ou JSON, conforme a implementação e as capacidades suportadas.
+
+8. Segurança
+
+O YANG não fornece mecanismos próprios de autenticação, criptografia ou proteção da comunicação.
+
+A segurança depende do protocolo e do transporte utilizados para acessar os dados.
+
+Por exemplo:
+- NETCONF utiliza normalmente SSH sobre TCP.
+- RESTCONF utiliza HTTP ou HTTPS, sendo recomendado HTTPS para proteger a comunicação.
+
+9. Casos de uso
+
+O YANG pode ser utilizado para:
+- Padronizar modelos de configuração de dispositivos.
+- Definir estruturas de interfaces de rede.
+- Representar parâmetros de roteamento.
+- Validar tipos e restrições de dados.
+- Facilitar a automação de configurações.
+- Promover interoperabilidade entre fabricantes.
+
+10. Diferença entre YANG, NETCONF e RESTCONF
+
+- YANG: linguagem de modelagem de dados.
+- NETCONF: protocolo de gerenciamento baseado em operações RPC.
+- RESTCONF: protocolo de gerenciamento que disponibiliza recursos por meio de interfaces HTTP.
+
+YANG pode ser utilizado tanto com NETCONF quanto com RESTCONF.

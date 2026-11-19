@@ -1,0 +1,87 @@
+
+NETCONF — Network Configuration Protocol
+
+1. Conceito
+
+O NETCONF (Network Configuration Protocol) é um protocolo utilizado para instalar, consultar, modificar e gerenciar configurações de dispositivos de rede.
+
+Ele permite que sistemas de gerenciamento realizem operações estruturadas sobre configurações e estados de equipamentos, como roteadores e switches.
+
+2. Arquitetura
+
+A arquitetura NETCONF possui dois componentes principais:
+
+- Client: aplicação responsável por enviar solicitações de gerenciamento.
+- Server: dispositivo de rede que recebe as solicitações e executa as operações disponíveis.
+
+A comunicação ocorre por meio de mensagens RPC (Remote Procedure Call).
+
+3. Transporte e comunicação
+
+O NETCONF utiliza uma camada de transporte segura para estabelecer a comunicação entre cliente e servidor.
+
+O transporte mais comum é SSH sobre TCP.
+
+Porta padrão:
+- TCP 830: porta utilizada pelo NETCONF sobre SSH.
+
+O protocolo também define um mecanismo de enquadramento de mensagens para delimitar as mensagens trocadas entre cliente e servidor.
+
+4. Modelo de dados
+
+O NETCONF utiliza modelos de dados para representar configurações e estados dos dispositivos.
+
+Esses modelos são frequentemente definidos com YANG (Yet Another Next Generation).
+
+O YANG descreve a estrutura dos dados, seus tipos, hierarquias e restrições.
+
+5. Operações principais
+
+- get: recupera dados de configuração e estado.
+- get-config: recupera dados de configuração de uma fonte específica.
+- edit-config: modifica configurações.
+- copy-config: copia uma configuração para outra fonte.
+- delete-config: remove uma configuração.
+- lock: bloqueia uma fonte de configuração para evitar alterações concorrentes.
+- unlock: libera uma fonte de configuração bloqueada.
+- commit: confirma alterações, especialmente em operações com candidate configuration.
+- rpc: mecanismo utilizado para enviar solicitações ao servidor.
+
+6. Datastores
+
+O NETCONF define diferentes fontes de dados para gerenciar configurações:
+
+- running: configuração atualmente em execução no dispositivo.
+- candidate: configuração candidata que pode ser editada antes de ser aplicada.
+- startup: configuração utilizada durante a inicialização do dispositivo.
+
+A disponibilidade de determinados datastores depende das capacidades implementadas pelo servidor.
+
+7. Segurança
+
+O NETCONF sobre SSH utiliza os mecanismos de segurança do SSH para autenticação e proteção da comunicação.
+
+É importante:
+- Utilizar autenticação forte.
+- Restringir os usuários autorizados.
+- Controlar permissões de configuração.
+- Registrar operações administrativas.
+- Restringir o acesso à porta TCP 830.
+
+8. Casos de uso
+
+O NETCONF pode ser utilizado para:
+- Consultar configurações de roteadores.
+- Alterar parâmetros de interfaces.
+- Aplicar configurações em equipamentos.
+- Automatizar mudanças em dispositivos de rede.
+- Consultar estados operacionais.
+- Gerenciar configurações de forma estruturada.
+
+9. Relação com YANG e RESTCONF
+
+O NETCONF utiliza frequentemente modelos YANG para estruturar os dados de configuração e estado.
+
+O RESTCONF também utiliza modelos YANG, mas disponibiliza acesso aos recursos por meio de interfaces HTTP.
+
+Enquanto o NETCONF utiliza operações RPC, o RESTCONF utiliza métodos HTTP como GET, POST, PUT, PATCH e DELETE.
